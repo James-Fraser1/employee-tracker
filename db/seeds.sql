@@ -40,6 +40,3 @@ VALUES
     ('Monica', 'Bellucci', 5, 5),
     ('Samuel', 'Johnson', 6, 6),
     ('John', 'Dryden', 6, 6);
-
-
-
