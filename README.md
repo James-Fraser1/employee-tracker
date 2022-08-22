@@ -38,8 +38,6 @@ WHEN I choose to update an employee role
 THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 ```
 
-![note img](https://user-images.githubusercontent.com/105461444/185200861-86d62b00-1f4d-43c7-8cba-082d325abbc9.png)
-
 ## **Installation &#128391;**
 1. Clone the repository and download it to your computer
 2. Install **[Inquirer](https://www.npmjs.com/package/inquirer)**, **[MySQL2](https://www.npmjs.com/package/express)**, and **[console.table](https://www.npmjs.com/package/uuid)** using the following command line prompts
