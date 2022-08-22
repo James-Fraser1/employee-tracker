@@ -90,8 +90,8 @@ function viewAllRoles() {
 };
 
 function viewAllEmployees() {
-    let sql = `SELECT * FROM employee;`;
-    connection.query(sql, (err, results) => {
+    let empSQL = `SELECT * FROM employee;`;
+    connection.query(empSQL, (err, results) => {
         if (err) {
             return console.error(err)
         } else {
@@ -104,22 +104,24 @@ function viewAllEmployees() {
 function addDepartment() {
     inquirer.prompt([
         {
-            name: "name",
+            name: "department_name",
             type: "input",
-            message: "What Department would you like to add?"
-        }
+            message: "What Department would you like to add?",
+        },
     ])
-        .then
-    initApp();
-    let sql = `JOIN * FROM department;`;
-    connection.query(sql, (err, results) => {
-        if (err) {
-            return console.error(err)
-        } else {
-            console.table(results)
-        }
+        .then(function (answer) {
+    connection.query(
+        'INSERT INTO department SET ?',
+        {
+            department_name: answer.department_name,
+        });
+    let deptSQL = 'SELECT * FROM department;';
+    connection.query(deptSQL, (err, res) => {
+        if (err) throw err;
+        console.log('Your Department has been added!');
         initApp();
-    })
+    });
+});
 };
 
 function addRoles() {
