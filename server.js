@@ -207,8 +207,43 @@ function addEmployees() {
     });
 };
 
-function updateEmployeeRole() {
-
-
-    initApp();
-};
+// function updateEmployeeRole() {
+//     inquirer.prompt([
+//         {
+//             name: "new_first_name",
+//             type: "input",
+//             message: "What is your Employee's new first name?"
+//         },
+//         {
+//             name: "new_last_name",
+//             type: "input",
+//             message: "What is your Employee's new last name?"
+//         },
+//         {
+//             name: "new_role_id",
+//             type: "input",
+//             message: "What is your Employee's new role id?"
+//         },
+//         {
+//             name: "new_manager_id",
+//             type: "input",
+//             message: "What is your Employee's new manager id?"
+//         },
+//     ])
+//     .then(function (answer) {
+//         connection.query(
+//             'UPDATE employee SET ?',
+//             {
+//                 first_name: answer.new_first_name,
+//                 last_name: answer.new_last_name,
+//                 role_id: answer.new_role_id,
+//                 manager_id: answer.new_manager_id,
+//             });
+//         let empSQL = 'SELECT * FROM employee;';
+//         connection.query(empSQL, (err) => {
+//             if (err) throw err;
+//             console.log('Your Employee has been updated!');
+//             initApp();
+//         });
+//     });
+// };
