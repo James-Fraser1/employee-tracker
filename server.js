@@ -110,73 +110,101 @@ function addDepartment() {
         },
     ])
         .then(function (answer) {
-    connection.query(
-        'INSERT INTO department SET ?',
-        {
-            department_name: answer.department_name,
+            connection.query(
+                'INSERT INTO department SET ?',
+                {
+                    department_name: answer.department_name,
+                });
+            let deptSQL = 'SELECT * FROM department;';
+            connection.query(deptSQL, (err) => {
+                if (err) throw err;
+                console.log('Your new Department has been added!');
+                initApp();
+            });
         });
-    let deptSQL = 'SELECT * FROM department;';
-    connection.query(deptSQL, (err, res) => {
-        if (err) throw err;
-        console.log('Your Department has been added!');
-        initApp();
-    });
-});
 };
 
 function addRoles() {
     inquirer.prompt([
         {
-            name: "name",
+            name: "title",
             type: "input",
             message: "What is the title of your Role?"
         },
         {
-            name: "view",
+            name: "department_name",
             type: "list",
             message: "What department is your Role within?",
             choices: ['Engineering', 'Finance', 'Legal', 'Sales']
         },
         {
-            name: "name",
+            name: "salary",
             type: "input",
             message: "What is the salary of your Role?"
         },
         {
-            name: "name",
-            type: "input",
-            message: "What is the title of your Role?"
-        },
-        {
-            name: "name",
+            name: "department_id",
             type: "input",
             message: "What is the Role's department ID?"
         },
     ])
-        .then
-    initApp();
+        .then(function (answer) {
+            connection.query(
+                'INSERT INTO roles SET ?',
+                {
+                    title: answer.title,
+                    department_name: answer.department_name,
+                    salary: answer.salary,
+                    department_id: answer.department_id,
+                });
+            let roleSQL = 'SELECT * FROM roles;';
+            connection.query(roleSQL, (err) => {
+                if (err) throw err;
+                console.log('Your new Role has been added!');
+                initApp();
+            });
+        });
 };
 
 function addEmployees() {
     inquirer.prompt([
         {
-            name: "name",
+            name: "first_name",
             type: "input",
             message: "What is your Employee's first name?"
         },
         {
-            name: "name",
+            name: "last_name",
             type: "input",
             message: "What is your Employee's last name?"
         },
         {
-            name: "name",
+            name: "role_id",
             type: "input",
-            message: "What is your Employee's ?"
+            message: "What is your Employee's role id?"
         },
-
+        {
+            name: "manager_id",
+            type: "input",
+            message: "What is your Employee's manager id?"
+        },
     ])
-    initApp();
+    .then(function (answer) {
+        connection.query(
+            'INSERT INTO employee SET ?',
+            {
+                first_name: answer.first_name,
+                last_name: answer.last_name,
+                role_id: answer.role_id,
+                manager_id: answer.manager_id,
+            });
+        let empSQL = 'SELECT * FROM employee;';
+        connection.query(empSQL, (err) => {
+            if (err) throw err;
+            console.log('Your new Employee has been added!');
+            initApp();
+        });
+    });
 };
 
 function updateEmployeeRole() {
