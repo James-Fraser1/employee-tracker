@@ -52,7 +52,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 ## **Usage**
 
-**[Click to watch a video demonstration of the application](https://james-fraser1.github.io/note-taker/)**
+**[Click to watch a video demonstration of the application]([https://james-fraser1.github.io/note-taker/](https://youtu.be/fzguD4dcxz0))**
 
 
 Initiate the application using the command line prompt
